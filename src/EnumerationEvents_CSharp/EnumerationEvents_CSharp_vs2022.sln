@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumerationEvents_CSharp", "EnumerationEvents_CSharp_vs2022.csproj", "{01EBD3CF-ED0F-2350-165B-08E002DF216E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01EBD3CF-ED0F-2350-165B-08E002DF216E}.Debug|x64.ActiveCfg = Debug|x64
+		{01EBD3CF-ED0F-2350-165B-08E002DF216E}.Debug|x64.Build.0 = Debug|x64
+		{01EBD3CF-ED0F-2350-165B-08E002DF216E}.Debug|x86.ActiveCfg = Debug|x86
+		{01EBD3CF-ED0F-2350-165B-08E002DF216E}.Debug|x86.Build.0 = Debug|x86
+		{01EBD3CF-ED0F-2350-165B-08E002DF216E}.Release|x64.ActiveCfg = Release|x64
+		{01EBD3CF-ED0F-2350-165B-08E002DF216E}.Release|x64.Build.0 = Release|x64
+		{01EBD3CF-ED0F-2350-165B-08E002DF216E}.Release|x86.ActiveCfg = Release|x86
+		{01EBD3CF-ED0F-2350-165B-08E002DF216E}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

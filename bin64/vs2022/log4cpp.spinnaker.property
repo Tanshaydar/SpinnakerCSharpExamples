@@ -1,0 +1,39 @@
+# Property Configurator for Spinnaker library
+
+# Root category logging priority and appender is used if individual categories are not configured
+# Note: Multiple appenders can be attached to the same category
+log4cpp.rootCategory=ERROR, SpinnakerFileAppender, SpinnakerWithSerialFileAppender
+log4cpp.category.SpinnakerConsole=FATAL, SpinnakerConsoleAppender
+log4cpp.category.Spinnaker=ERROR, SpinnakerFileAppender, SpinnakerWithSerialFileAppender
+
+# Console Appender appends LoggingEvents to ostreams
+log4cpp.appender.SpinnakerConsoleAppender=ConsoleAppender
+log4cpp.appender.SpinnakerConsoleAppender.layout=PatternLayout
+log4cpp.appender.SpinnakerConsoleAppender.layout.ConversionPattern=[%p %c] %d [%t] %m%n
+
+# Rolling File Appender rolls over the logfile once it has reached a certain size limit.
+# Compression applies when maxFileSize is reached and log will be split up depending on maxBackupIndex specified.
+# Note: Compression takes some time depending on the maxFileSize specified so use with caution for time sensitive applications.
+# Note: When textFilter is specified, a LoggingEvent only gets logged if the log message contains the text in textFilter.
+
+# RollingFileAppender without text filter
+log4cpp.appender.SpinnakerFileAppender=RollingFileAppender
+log4cpp.appender.SpinnakerFileAppender.fileName=$(ALLUSERSPROFILE)\Spinnaker\Shared\Logs\Spinnaker.log
+log4cpp.appender.SpinnakerFileAppender.append=true
+log4cpp.appender.SpinnakerFileAppender.maxFileSize=1000000
+log4cpp.appender.SpinnakerFileAppender.maxBackupIndex=5
+log4cpp.appender.SpinnakerFileAppender.layout=PatternLayout
+log4cpp.appender.SpinnakerFileAppender.layout.ConversionPattern=[%p %c] %d [%t] %m%n
+log4cpp.appender.SpinnakerFileAppender.compression=false
+
+# RollingFileAppender with text filter.  Only messages that contain the specified text in textFilter will be logged.
+# Here, the text filter is set to only append camera-specific LoggingEvents
+log4cpp.appender.SpinnakerWithSerialFileAppender=RollingFileAppender
+log4cpp.appender.SpinnakerWithSerialFileAppender.fileName=$(ALLUSERSPROFILE)\Spinnaker\Shared\Logs\Spinnaker_Camera.log
+log4cpp.appender.SpinnakerWithSerialFileAppender.append=true
+log4cpp.appender.SpinnakerWithSerialFileAppender.maxFileSize=1000000
+log4cpp.appender.SpinnakerWithSerialFileAppender.maxBackupIndex=5
+log4cpp.appender.SpinnakerWithSerialFileAppender.layout=PatternLayout
+log4cpp.appender.SpinnakerWithSerialFileAppender.layout.ConversionPattern=[%p %c] %d [%t] %m%n
+log4cpp.appender.SpinnakerWithSerialFileAppender.compression=false
+log4cpp.appender.SpinnakerWithSerialFileAppender.textFilter=[SN:

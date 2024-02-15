@@ -1,0 +1,33 @@
+# Property Configurator for FLIR GenTL producer
+
+# Root category logging priority and appender is used if individual categories are not configured
+# Note: Multiple appenders can be attached to the same category
+log4cpp.rootCategory=ERROR, GenTLFileAppender, GenTLWithSerialFileAppender
+log4cpp.category.GenTL=ERROR, GenTLFileAppender, GenTLWithSerialFileAppender
+
+# Rolling File Appender rolls over the logfile once it has reached a certain size limit.
+# Compression applies when maxFileSize is reached and log will be split up depending on maxBackupIndex specified.
+# Note: Compression takes some time depending on the maxFileSize specified so use with caution for time sensitive applications.
+# Note: When textFilter is specified, a LoggingEvent only gets logged if the log message contains the text in textFilter.
+
+# RollingFileAppender without text filter
+log4cpp.appender.GenTLFileAppender=RollingFileAppender
+log4cpp.appender.GenTLFileAppender.fileName=$(ALLUSERSPROFILE)\Spinnaker\Shared\Logs\GenTL.log
+log4cpp.appender.GenTLFileAppender.append=true
+log4cpp.appender.GenTLFileAppender.maxFileSize=1000000
+log4cpp.appender.GenTLFileAppender.maxBackupIndex=5
+log4cpp.appender.GenTLFileAppender.layout=PatternLayout
+log4cpp.appender.GenTLFileAppender.layout.ConversionPattern=[%p] %d [%t] %m%n
+log4cpp.appender.GenTLFileAppender.compression=false
+
+# RollingFileAppender with text filter.  Only messages that contain the specified text in textFilter will be logged.
+# Here, the text filter is set to only append camera-specific LoggingEvents
+log4cpp.appender.GenTLWithSerialFileAppender=RollingFileAppender
+log4cpp.appender.GenTLWithSerialFileAppender.fileName=$(ALLUSERSPROFILE)\Spinnaker\Shared\Logs\GenTL_Camera.log
+log4cpp.appender.GenTLWithSerialFileAppender.append=true
+log4cpp.appender.GenTLWithSerialFileAppender.maxFileSize=1000000
+log4cpp.appender.GenTLWithSerialFileAppender.maxBackupIndex=5
+log4cpp.appender.GenTLWithSerialFileAppender.layout=PatternLayout
+log4cpp.appender.GenTLWithSerialFileAppender.layout.ConversionPattern=[%p] %d [%t] %m%n
+log4cpp.appender.GenTLWithSerialFileAppender.compression=false
+log4cpp.appender.GenTLWithSerialFileAppender.textFilter=[SN:
